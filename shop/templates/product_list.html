@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 20px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; }
+        li:hover { background: #e9e9e9; }
+    </style>
+</head>
+<body>
+    <h1>Product List</h1>
+    <ul>
+        {% for product in products %}
+        <li>
+            <h2>{{ product.name }}</h2>
+            <p>ID: {{ product.id }}</p>
+            <p>Description: {{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <p>Quantity in Stock: {{ product.quantity_in_stock }}</p>
+            <a href="/api/products/{{ product.id }}/">View Details</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div>
+        <a href="/">Home</a> | <a href="/api/orders/">Create Order</a> | <a href="/api/user/orders/">My Orders</a>
+    </div>
+</body>
+</html>
